@@ -1,0 +1,7 @@
+PyQt4
+pyquery
+mp3play
+requests
+pyaudio
+flask-peewee
+Flask-restful

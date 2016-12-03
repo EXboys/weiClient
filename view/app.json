@@ -1,0 +1,21 @@
+{
+  "name":"weiClient",
+  "win":"winView",
+  "app":"app",
+  "user":"test",
+  "debug":true,
+  "ico":"imgs/icon.ico",
+  "opacity":0.8,
+  "main":{
+      "url":"main.html",
+      "width":280,
+      "height":400
+  },
+  "dialog":{
+      "url":"dialogFrame.html",
+      "content":"dialogContent.html",
+      "opacity":0.95,
+      "width":450,
+      "height":300
+  }
+}

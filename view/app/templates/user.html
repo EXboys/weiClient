@@ -1,0 +1,61 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link href='{{ url_for("static", filename="css/bootstrap.css") }}' rel="stylesheet" type="text/css" />-->
+    <link href='{{ url_for("static", filename="css/login.css") }}' rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src='{{ url_for("static", filename="js/jquery-2.0.2.min.js") }}'></script>
+    <script type="text/javascript" src='{{ url_for("static", filename="js/bootstrap.js") }}'></script>
+    <title>极客攻略</title>
+</head>
+<body>
+
+    <div class="container" style="top:60px; position: relative">
+        <div class="card card-container">
+        <h2 class='login_title text-center'>登录</h2>
+        <hr>
+            <form class="form-signin">
+                <span id="reauth-email" class="reauth-email"></span>
+                <p class="input_title">Email</p>
+                <input type="text" id="inputEmail" class="login_box" value="" placeholder="极客攻略" required autofocus>
+                <p class="input_title">Password</p>
+                <input type="password" id="inputPassword" class="login_box" value="" placeholder="******" required>
+                <div id="remember" class="checkbox">
+                    <label>
+
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit">提交</button>
+            </form><!-- /form -->
+        </div><!-- /card-container -->
+    </div><!-- /container -->
+    <div id="content"></div>
+<script type="text/javascript">
+    $('form').submit(function(e){
+        var username = $('#inputEmail').val();
+        var password = $('#inputPassword').val();
+         htmlobj=$.ajax({
+             url:"http://www.xymodel.com/api/login?username="+username+"&password="+password,
+             type:'get',
+             dataType:'JSONP',
+             async:false});
+        alert(htmlobj);
+        $("#content").html(htmlobj.responseText);
+//        $.ajax({
+//            type:'get',
+//            url:'http://www.xymodel.com/api/login',
+////            dataType:'json',
+//            data:'username='+username+'&password='+password,
+//            success:function(data,status){
+//                alert('iiiiiiiiiiiiiiiiiiiiiii');
+//                $('#content').html(data);
+//            },
+//            callback:function(data,status){
+//                alert('iiiiiiiiiiiiiiiiiiiiiii');
+//                $('#content').html(data);
+//            }
+//        });
+    });
+</script>
+</body>
+</html>

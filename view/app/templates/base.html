@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href='{{ url_for("static", filename="css/bootstrap.css") }}' rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src='{{ url_for("static", filename="js/jquery-2.0.2.min.js") }}'></script>
+    <script type="text/javascript" src='{{ url_for("static", filename="js/bootstrap.js") }}'></script>
+    <link href='{{ url_for("static", filename="css/index.css") }}' rel="stylesheet" type="text/css" />
+</head>
+<body>
+{% include 'nav.html' %}
+<div class="container" style="top: 65px;position: relative">
+    {% if subtype == 1 %}
+     <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <strong>成功!</strong> 更新完成
+    </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+</div>
+{% include 'foot.html' %}
+</body>
+</html>

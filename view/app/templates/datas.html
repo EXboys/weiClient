@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>QQ号</th>
+          <th>所在群</th>
+          <th>是否添加</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in qq %}
+        <tr {% if loop.index % 2 !=0 %} style="color: #3B3B3B;" {% endif %}>
+          <td>{{loop.index}}</td>
+          <td> {{item[0]}}</td>
+          <td> {{item[1]}}</td>
+          <td> {{item[2]}}</td>
+        </tr>
+       {% endfor %}
+      </tbody>
+    </table>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="form-group">
+                <label for="InputPassword">展示数量</label>
+                <form method="get" action="{{ url_for('datas') }}" class="input-group">
+                    <input type="text" name="pageNum" id="InputPassword" class="form-control">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn small">提交</button>
+                    </span>
+                </form>
+            </div>
+        </div>
+    </div>
+    <nav>
+      <ul class="pager">
+        <li ><a href='{{url_for("datas",num = prevPage)}}' style="color: #3B3B3B">&laquo;上一页</a></li>
+        <li ><a href='{{url_for("datas",num = nextPage)}}' style="color: #3B3B3B">下一页&raquo;</a></li>
+      </ul>
+    </nav>
+
+{% endblock %}
